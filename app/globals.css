@@ -1013,7 +1013,7 @@ html[dir="rtl"] .navigation-card:hover .navigation-card-arrow { transform: scale
   .not-found-orbit { width: 80vw; right: -35%; opacity: .55; }
   .not-found-actions { align-items: stretch; flex-direction: column; }
   .not-found-primary, .not-found-secondary { width: 100%; }
-  .nav-map-link { display: none; }
+  .nav-map-link { display: flex; width: 100%; padding: 15px 5px; border: 0; border-bottom: 1px solid #edf1f2; border-radius: 0; background: transparent; font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .navigation-card, .navigation-card-arrow { transition: none; }
