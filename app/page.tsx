@@ -33,6 +33,7 @@ export default function Home() {
   const [chatOpen, setChatOpen] = useState(false);
   const [question, setQuestion] = useState("");
   const [headerScrolled, setHeaderScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("top");
   const [formState, setFormState] = useState<"idle" | "ready">("idle");
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
   const [messages, setMessages] = useState<
@@ -53,6 +54,22 @@ export default function Home() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = ["top", "program", "vision-mission", "objectives", "academic-resources", "leadership", "learning-resources", "contact"];
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter((section): section is HTMLElement => Boolean(section));
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => Math.abs(a.boundingClientRect.top) - Math.abs(b.boundingClientRect.top));
+      if (visible[0]) setActiveSection(visible[0].target.id);
+    }, { rootMargin: "-15% 0px -65% 0px", threshold: 0 });
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -179,7 +196,7 @@ export default function Home() {
 
   return (
     <main className="site-shell">
-      <SiteHeader t={t} isAr={isAr} menuOpen={menuOpen} headerScrolled={headerScrolled} onChangeLocale={changeLocale} onToggleMenu={() => setMenuOpen((open) => !open)} onCloseMenu={() => setMenuOpen(false)} />
+      <SiteHeader t={t} isAr={isAr} menuOpen={menuOpen} headerScrolled={headerScrolled} activeSection={activeSection} onChangeLocale={changeLocale} onToggleMenu={() => setMenuOpen((open) => !open)} onCloseMenu={() => setMenuOpen(false)} />
 
       <section className="hero" id="top">
         <div className="hero-grid" aria-hidden="true" />
