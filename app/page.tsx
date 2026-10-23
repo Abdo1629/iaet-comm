@@ -21,7 +21,6 @@ import {
   Network,
   Radio,
   Send,
-  ShieldCheck,
   Signal,
   Sparkles,
   Target,
@@ -52,7 +51,7 @@ const content = {
     aboutEyebrow: "01 / THE PROGRAM",
     aboutTitle: "Engineering ideas into connected systems.",
     aboutDescription:
-      "Discover the program through its published academic vision, mission, objectives and official resources. This website brings essential program information into one clear, accessible experience.",
+      "Explore the program’s vision, mission, objectives and academic resources in one clear, connected experience.",
     aboutNote: "Official information, made easier to explore.",
     vision: "Vision",
     visionText:
@@ -64,7 +63,7 @@ const content = {
     objectiveLabel: "03 / PROGRAM OBJECTIVES",
     objectiveTitle: "Knowledge, analysis and responsibility.",
     objectiveIntro:
-      "The program's published objectives describe a combination of engineering analysis, technical development, problem-solving and professional practice.",
+      "Build a foundation in engineering analysis, technical development, problem-solving and professional practice.",
     objectives: [
       "Use analysis and simulation tools from engineering science and mathematics.",
       "Identify and develop technologies across electronics and communications engineering.",
@@ -75,7 +74,7 @@ const content = {
     academicLabel: "04 / ACADEMIC RESOURCES",
     academicTitle: "Find the information you need.",
     academicIntro:
-      "Explore published program information and official academic destinations. Always check the source for the latest version of each document.",
+      "Explore program information, academic documents, student resources and research.",
     resourceGroups: [
       {
         title: "Program information",
@@ -109,12 +108,12 @@ const content = {
     leadershipLabel: "05 / PROGRAM LEADERSHIP",
     leadershipTitle: "A shared commitment to engineering education.",
     leadershipText:
-      "The official program website publishes a message from Dr. Mohammed Sobhy El-Bakry. Consult the original page for the complete, current statement.",
+      "Explore the academic profile and research interests of Dr. Mohammed Sobhy El-Bakry.",
     readMessage: "Read the official message",
     learningLabel: "06 / YOUR NEXT STEP",
     learningTitle: "Continue exploring the program.",
     learningText:
-      "Start with the official program page to find academic information, published resources and contact details.",
+      "Explore the program, academic resources and ways to connect with the institute.",
     openProgram: "Visit official program page",
     contactUs: "Contact IAET",
     contactLabel: "07 / CONTACT",
@@ -122,9 +121,9 @@ const content = {
     address: "Al Matar, Imbaba, Giza Governorate, Egypt",
     email: "Email",
     phone: "Telephone",
-    footerNote: "A proposed digital experience for academic information.",
+    footerNote: "Engineering, knowledge and connection in one digital experience.",
     footerDisclaimer:
-      "Design proposal, not an official IAET publication. Content and assets require institutional review before release.",
+      "",
     assistant: "IAET Program Assistant",
     assistantDescription:
       "I can help you locate published program information.",
@@ -139,7 +138,7 @@ const content = {
     send: "Send",
     source: "Official source",
     unknown:
-      "I can't verify that from the information available in this prototype. Please consult the official program page or contact IAET.",
+      "Explore the program pages or contact the institute for further information.",
     greeting:
       "Hello! Ask me about the published program vision, objectives, academic resources or contact information.",
     close: "Close assistant",
@@ -156,7 +155,7 @@ const content = {
     formRequired: "Please complete this field.",
     formEmailInvalid: "Enter a valid email address.",
     formUnavailable:
-      "Online delivery is not configured. Your email app can still be opened with the prepared message.",
+      "Your email application will open with the message prepared for review and sending.",
     formReady: "Your email draft is ready. Please review it before sending.",
     education: "Education",
     research: "Research interests",
@@ -186,7 +185,7 @@ const content = {
     aboutEyebrow: "01 / البرنامج",
     aboutTitle: "من الأفكار الهندسية إلى الأنظمة المترابطة.",
     aboutDescription:
-      "تعرّف على البرنامج من خلال رؤيته ورسالته وأهدافه الأكاديمية ومصادره الرسمية المنشورة. يجمع هذا الموقع المعلومات الأساسية في تجربة واضحة وسهلة الاستخدام.",
+      "اكتشف رؤية البرنامج ورسالته وأهدافه ومصادره الأكاديمية في تجربة رقمية واضحة ومترابطة.",
     aboutNote: "معلومات رسمية، في تجربة أسهل للاستكشاف.",
     vision: "الرؤية",
     visionText:
@@ -198,7 +197,7 @@ const content = {
     objectiveLabel: "03 / أهداف البرنامج",
     objectiveTitle: "معرفة وتحليل ومسؤولية.",
     objectiveIntro:
-      "تعكس الأهداف المنشورة للبرنامج الجمع بين التحليل الهندسي والتطوير التقني وحل المشكلات والممارسة المهنية.",
+      "يجمع البرنامج بين التحليل الهندسي والتطوير التقني وحل المشكلات والممارسة المهنية.",
     objectives: [
       "استخدام أدوات التحليل والمحاكاة في العلوم الهندسية والرياضيات.",
       "تحديد وتطوير التقنيات في مجالات هندسة الإلكترونيات والاتصالات.",
@@ -209,7 +208,7 @@ const content = {
     academicLabel: "04 / المصادر الأكاديمية",
     academicTitle: "اعثر على المعلومات التي تحتاجها.",
     academicIntro:
-      "استكشف المعلومات المنشورة والروابط الأكاديمية الرسمية. تحقّق دائمًا من المصدر لمعرفة أحدث إصدار من كل مستند.",
+      "استكشف معلومات البرنامج واللوائح الأكاديمية والمصادر الطلابية والبحثية.",
     resourceGroups: [
       {
         title: "معلومات البرنامج",
@@ -243,12 +242,12 @@ const content = {
     leadershipLabel: "05 / قيادة البرنامج",
     leadershipTitle: "التزام مشترك بالتعليم الهندسي.",
     leadershipText:
-      "ينشر الموقع الرسمي للبرنامج كلمة للدكتور محمد صبحي البكري. يُرجى الرجوع إلى الصفحة الأصلية للاطلاع على النص الكامل والمحدّث.",
+      "تعرّف على المسيرة الأكاديمية والاهتمامات البحثية للدكتور محمد صبحي البكري.",
     readMessage: "قراءة الكلمة الرسمية",
     learningLabel: "06 / خطوتك التالية",
     learningTitle: "واصل استكشاف البرنامج.",
     learningText:
-      "ابدأ بالصفحة الرسمية للبرنامج للوصول إلى المعلومات الأكاديمية والمصادر المنشورة وبيانات التواصل.",
+      "اكتشف تفاصيل البرنامج ومصادره الأكاديمية وطرق التواصل مع المعهد.",
     openProgram: "زيارة الصفحة الرسمية للبرنامج",
     contactUs: "التواصل مع المعهد",
     contactLabel: "07 / التواصل",
@@ -256,9 +255,9 @@ const content = {
     address: "المطار، إمبابة، محافظة الجيزة، مصر",
     email: "البريد الإلكتروني",
     phone: "الهاتف",
-    footerNote: "تجربة رقمية مقترحة للمعلومات الأكاديمية.",
+    footerNote: "الهندسة والمعرفة والتواصل في تجربة رقمية واحدة.",
     footerDisclaimer:
-      "مقترح تصميمي وليس منشورًا رسميًا للمعهد. يلزم مراجعة المحتوى والأصول البصرية واعتمادها قبل النشر.",
+      "",
     assistant: "مساعد البرنامج",
     assistantDescription: "أساعدك في الوصول إلى المعلومات المنشورة عن البرنامج.",
     starter: "أسئلة مقترحة",
@@ -272,7 +271,7 @@ const content = {
     send: "إرسال",
     source: "المصدر الرسمي",
     unknown:
-      "لا أستطيع التحقق من هذه المعلومة من محتوى النموذج الحالي. يُرجى مراجعة الصفحة الرسمية للبرنامج أو التواصل مع المعهد.",
+      "يمكنك استكشاف صفحات البرنامج أو التواصل مع المعهد للحصول على مزيد من التفاصيل.",
     greeting:
       "أهلًا بك! اسألني عن الرؤية المنشورة أو أهداف البرنامج أو المصادر الأكاديمية أو بيانات التواصل.",
     close: "إغلاق المساعد",
@@ -289,7 +288,7 @@ const content = {
     formRequired: "يرجى استكمال هذا الحقل.",
     formEmailInvalid: "يرجى إدخال بريد إلكتروني صحيح.",
     formUnavailable:
-      "لم يتم إعداد الإرسال المباشر. يمكنك فتح تطبيق البريد برسالة مجهزة.",
+      "سيتم فتح تطبيق البريد برسالة جاهزة للمراجعة والإرسال.",
     formReady: "تم تجهيز مسودة البريد. يرجى مراجعتها قبل الإرسال.",
     education: "التعليم",
     research: "الاهتمامات البحثية",
@@ -647,12 +646,6 @@ export default function Home() {
             <ResourceCard key={group.title} group={group} index={index} reducedMotion={reducedMotion} isAr={isAr} officialPage={t.officialPage} />
           ))}
         </div>
-        <p className="resource-disclaimer">
-          <ShieldCheck size={16} />
-          {isAr
-            ? "هذه روابط لصفحات رسمية عامة وليست روابط تنزيل مباشرة لمستندات مؤكدة. يجب التحقق من رابط كل مستند وتاريخ إصداره قبل النشر."
-            : "These links lead to official landing pages, not verified direct document downloads. Confirm each document URL and publication date before launch."}
-        </p>
       </section>
 
       <section className="leadership-section section-pad" id="leadership">
@@ -666,7 +659,7 @@ export default function Home() {
           <div className="profile-summary">
             <div>
               <strong>{leadershipProfile.name}</strong>
-              <span>{isAr ? "ملف أكاديمي · يحتاج المسمى الحالي إلى تأكيد" : leadershipProfile.designation}</span>
+              <span>{isAr ? "الملف الأكاديمي" : "Academic profile"}</span>
             </div>
             <p>{leadershipProfile.summary}</p>
           </div>
@@ -680,14 +673,10 @@ export default function Home() {
               <ul>{leadershipProfile.research.map((item) => <li key={item}>{item}</li>)}</ul>
             </div>
           </div>
-          <p className="profile-note">{t.profileNote}</p>
           <a className="text-link" href={sourceUrl[locale]} target="_blank" rel="noreferrer">
             {t.readMessage}
             {isAr ? <ArrowLeft size={17} /> : <ArrowRight size={17} />}
           </a>
-          <span className="leadership-attribution">
-            {isAr ? "د. محمد صبحي البكري · وفق البيانات المنشورة" : "Dr. Mohammed Sobhy El-Bakry · As published"}
-          </span>
         </div>
       </section>
 
