@@ -93,8 +93,6 @@ export const content = {
     email: "Email",
     phone: "Telephone",
     footerNote: "Engineering, knowledge and connection in one digital experience.",
-    footerDisclaimer:
-      "",
     assistant: "IAET Program Assistant",
     assistantDescription:
       "I can help you explore the program and its academic resources.",
