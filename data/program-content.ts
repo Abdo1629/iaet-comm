@@ -223,8 +223,6 @@ export const content = {
     email: "البريد الإلكتروني",
     phone: "الهاتف",
     footerNote: "الهندسة والمعرفة والتواصل في تجربة رقمية واحدة.",
-    footerDisclaimer:
-      "",
     assistant: "مساعد البرنامج",
     assistantDescription: "أساعدك في استكشاف البرنامج ومصادره الأكاديمية.",
     starter: "أسئلة مقترحة",
