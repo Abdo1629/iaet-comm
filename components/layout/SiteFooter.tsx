@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-type Copy = { program:string;footerNote:string;footerNav:string;nav:[string,string][];learningLabel:string;contact:string;officialWebsite:string;footerDisclaimer:string;backTop:string };
+type Copy = { program:string;footerNote:string;footerNav:string;nav:string[][];learningLabel:string;contact:string;officialWebsite:string;footerDisclaimer:string;backTop:string };
 export function SiteFooter({t}:{t:Copy}) {
  return <footer className="site-footer">
   <div className="footer-grid">

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { ArrowDownLeft, ArrowUpRight, Languages, Menu, X } from "lucide-react";
-type Copy = { institution:string; proposed:string; nav:[string,string][]; contact:string; menuLabel:string };
+type Copy = { institution:string; proposed:string; nav:string[][]; contact:string; menuLabel:string };
 export function SiteHeader({t,isAr,menuOpen,headerScrolled,onChangeLocale,onToggleMenu,onCloseMenu}:{t:Copy;isAr:boolean;menuOpen:boolean;headerScrolled:boolean;onChangeLocale:()=>void;onToggleMenu:()=>void;onCloseMenu:()=>void}) {
  return <>
   <div className="announcement"><span className="announcement-dot" /><span>{t.proposed}</span><span className="announcement-divider">/</span><span>{t.institution}</span></div>
