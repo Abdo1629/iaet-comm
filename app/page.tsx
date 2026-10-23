@@ -13,6 +13,7 @@ import { SectionIndex } from "@/components/ui/SectionIndex";
 import { ResourceCard } from "@/components/home/ResourceCard";
 import { ObjectiveList } from "@/components/home/ObjectiveList";
 import { HeroVisual } from "@/components/home/HeroVisual";
+import { VisionMission } from "@/components/home/VisionMission";
 import {
   ArrowLeft,
   ArrowRight,
@@ -23,7 +24,6 @@ import {
   MessageCircle,
   Send,
   Sparkles,
-  Target,
   X,
 } from "lucide-react";
 
@@ -216,38 +216,7 @@ export default function Home() {
 
       <section className="vision-section section-pad" id="vision-mission">
         <SectionIndex label={t.visionLabel} />
-        <div className="vision-grid">
-          <motion.article
-            className="vision-panel vision-primary"
-            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="panel-top">
-              <span className="panel-number">01</span>
-              <Target size={22} />
-            </div>
-            <h2>{t.vision}</h2>
-            <p>{t.visionText}</p>
-            <span className="panel-footer">OFFICIAL PROGRAM VISION</span>
-          </motion.article>
-          <motion.article
-            className="vision-panel vision-secondary"
-            initial={reducedMotion ? false : { opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <div className="panel-top">
-              <span className="panel-number">02</span>
-              <Network size={22} />
-            </div>
-            <h2>{t.mission}</h2>
-            <p>{t.missionText}</p>
-            <span className="panel-footer">OFFICIAL PROGRAM MISSION</span>
-          </motion.article>
-        </div>
+        <VisionMission vision={t.vision} visionText={t.visionText} mission={t.mission} missionText={t.missionText} reducedMotion={reducedMotion} />
       </section>
 
       <section className="objectives-section section-pad" id="objectives">
