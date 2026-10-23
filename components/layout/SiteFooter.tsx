@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-type Copy = { program:string;footerNote:string;footerNav:string;nav:string[][];learningLabel:string;contact:string;officialWebsite:string;footerDisclaimer:string;backTop:string };
+type Copy = { program:string;footerNote:string;footerNav:string;nav:string[][];learningLabel:string;contact:string;officialWebsite:string;backTop:string;institution?:string };
 export function SiteFooter({t}:{t:Copy}) {
  return <footer className="site-footer">
   <div className="footer-grid">
@@ -8,6 +8,6 @@ export function SiteFooter({t}:{t:Copy}) {
    <nav className="footer-column" aria-label={t.footerNav}><strong>{t.footerNav}</strong>{t.nav.map(([label,href])=><a key={href} href={href}>{label}</a>)}<a href="#learning-resources">{t.learningLabel}</a><a href="#contact">{t.contact}</a></nav>
    <div className="footer-column"><strong>{t.contact}</strong><a href="mailto:info@iaet.edu.eg">info@iaet.edu.eg</a><a href="tel:+20233594060">02 33594060</a><a href="https://iaet.edu.eg/" target="_blank" rel="noreferrer">{t.officialWebsite}</a></div>
   </div>
-  <div className="footer-bottom"><span>© IAET · {t.program}</span><span>{t.footerDisclaimer}</span><a href="#top" className="back-top">{t.backTop} <ArrowUpRight size={14} aria-hidden="true"/></a></div>
+  <div className="footer-bottom"><span>© {new Date().getFullYear()} IAET · {t.program}</span><span>{t.institution ?? "Institute of Aviation Engineering & Technology"}</span><a href="#top" className="back-top">{t.backTop} <ArrowUpRight size={14} aria-hidden="true"/></a></div>
  </footer>;
 }
