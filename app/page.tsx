@@ -650,8 +650,8 @@ export default function Home() {
         <p className="resource-disclaimer">
           <ShieldCheck size={16} />
           {isAr
-            ? "الروابط توجه إلى الموقع الرسمي؛ يجب التحقق من الرابط المباشر لكل مستند ومن سنة إصداره قبل النشر."
-            : "Links point to the official site; verify each direct document URL and publication year before launch."}
+            ? "هذه روابط لصفحات رسمية عامة وليست روابط تنزيل مباشرة لمستندات مؤكدة. يجب التحقق من رابط كل مستند وتاريخ إصداره قبل النشر."
+            : "These links lead to official landing pages, not verified direct document downloads. Confirm each document URL and publication date before launch."}
         </p>
       </section>
 
