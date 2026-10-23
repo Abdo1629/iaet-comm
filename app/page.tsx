@@ -196,7 +196,7 @@ export default function Home() {
         </a>
       </section>
 
-      <section className="intro-section section-pad" id="program">
+      <motion.section className="intro-section section-pad" id="program" initial={reducedMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.65, ease: "easeOut" }}>
         <SectionIndex label={t.aboutEyebrow} />
         <div className="intro-layout">
           <h2>{t.aboutTitle}</h2>
@@ -212,23 +212,23 @@ export default function Home() {
           <span>IAET — ECE</span>
           <span>ENGINEERING / COMMUNICATION / SYSTEMS</span>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="vision-section section-pad" id="vision-mission">
+      <motion.section className="vision-section section-pad" id="vision-mission" initial={reducedMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.65, ease: "easeOut" }}>
         <SectionIndex label={t.visionLabel} />
         <VisionMission vision={t.vision} visionText={t.visionText} mission={t.mission} missionText={t.missionText} reducedMotion={reducedMotion} />
-      </section>
+      </motion.section>
 
-      <section className="objectives-section section-pad" id="objectives">
+      <motion.section className="objectives-section section-pad" id="objectives" initial={reducedMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.65, ease: "easeOut" }}>
         <SectionIndex label={t.objectiveLabel} />
         <div className="objectives-heading">
           <h2>{t.objectiveTitle}</h2>
           <p>{t.objectiveIntro}</p>
         </div>
         <ObjectiveList objectives={t.objectives} reducedMotion={reducedMotion} isAr={isAr} />
-      </section>
+      </motion.section>
 
-      <section className="academics-section section-pad" id="academic-resources">
+      <motion.section className="academics-section section-pad" id="academic-resources" initial={reducedMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.65, ease: "easeOut" }}>
         <SectionIndex label={t.academicLabel} />
         <div className="academics-heading">
           <h2>{t.academicTitle}</h2>
@@ -239,9 +239,9 @@ export default function Home() {
             <ResourceCard key={group.title} group={group} index={index} reducedMotion={reducedMotion} isAr={isAr} officialPage={t.officialPage} />
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="leadership-section section-pad" id="leadership">
+      <motion.section className="leadership-section section-pad" id="leadership" initial={reducedMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.65, ease: "easeOut" }}>
         <div className="leadership-mark" aria-hidden="true">
           <Sparkles size={30} strokeWidth={1.2} />
         </div>
@@ -271,9 +271,9 @@ export default function Home() {
             {isAr ? <ArrowLeft size={17} /> : <ArrowRight size={17} />}
           </a>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="next-step-section section-pad" id="learning-resources">
+      <motion.section className="next-step-section section-pad" id="learning-resources" initial={reducedMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.65, ease: "easeOut" }}>
         <div className="next-step-inner">
           <div>
             <div className="eyebrow next-eyebrow">
@@ -288,9 +288,9 @@ export default function Home() {
             {isAr ? <ArrowLeft size={17} /> : <ArrowRight size={17} />}
           </a>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="contact-section section-pad" id="contact">
+      <motion.section className="contact-section section-pad" id="contact" initial={reducedMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.65, ease: "easeOut" }}>
         <SectionIndex label={t.contactLabel} />
         <div className="contact-layout">
           <h2>{t.contactTitle}</h2>
@@ -345,7 +345,7 @@ export default function Home() {
             </span>
           </div>
         </form>
-      </section>
+      </motion.section>
 
       <SiteFooter t={t} />
 
