@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Languages, Menu, X } from "lucide-react";
 
@@ -18,6 +17,7 @@ export function SiteHeader({
   isAr,
   menuOpen,
   headerScrolled,
+  activeSection,
   onChangeLocale,
   onToggleMenu,
   onCloseMenu,
@@ -26,12 +26,12 @@ export function SiteHeader({
   isAr: boolean;
   menuOpen: boolean;
   headerScrolled: boolean;
+  activeSection: string;
   onChangeLocale: () => void;
   onToggleMenu: () => void;
   onCloseMenu: () => void;
 }) {
   const reduceMotion = useReducedMotion();
-  const pathname = usePathname();
 
   return (
     <>
@@ -72,14 +72,14 @@ export function SiteHeader({
           aria-label={isAr ? "التنقل الرئيسي" : "Main navigation"}
         >
           {t.nav.map(([label, href], index) => {
-            const isActive = pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
+            const isActive = activeSection === href.slice(1);
             return (
             <motion.a
               key={href + (menuOpen ? "-open" : "-closed")}
               href={href}
               onClick={onCloseMenu}
               className={"nav-item" + (isActive ? " is-active" : "")}
-              aria-current={isActive ? "page" : undefined}
+              aria-current={isActive ? "location" : undefined}
               initial={menuOpen && !reduceMotion ? { opacity: 0, y: 8 } : false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.24, delay: menuOpen && !reduceMotion ? index * 0.045 : 0 }}
@@ -89,7 +89,7 @@ export function SiteHeader({
             </motion.a>
             );
           })}
-          <a href="/contact" className={"nav-contact" + (pathname === "/contact" ? " is-active" : "")} aria-current={pathname === "/contact" ? "page" : undefined} onClick={onCloseMenu}>
+          <a href="#contact" className={"nav-contact" + (activeSection === "contact" ? " is-active" : "")} aria-current={activeSection === "contact" ? "location" : undefined} onClick={onCloseMenu}>
             <span>{t.contact}</span>
             <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" />
           </a>
