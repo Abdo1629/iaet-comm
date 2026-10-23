@@ -46,7 +46,7 @@ export function SiteHeader({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
-        <a href="#top" className="brand" aria-label={t.institution} onClick={onCloseMenu}>
+        <a href="/" className="brand" aria-label={t.institution} onClick={onCloseMenu}>
           <span className="brand-logo-wrap">
             <Image
               src="/brand/iaet-logo.png"
@@ -82,7 +82,7 @@ export function SiteHeader({
               {label}
             </motion.a>
           ))}
-          <a href="#contact" className="nav-contact" onClick={onCloseMenu}>
+          <a href="/contact" className="nav-contact" onClick={onCloseMenu}>
             <span>{t.contact}</span>
             <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" />
           </a>
