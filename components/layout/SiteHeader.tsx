@@ -107,7 +107,7 @@ export function SiteHeader({
           </motion.button>
           <motion.button
             className="menu-toggle"
-            aria-label={t.menuLabel}
+            aria-label={menuOpen ? (isAr ? "إغلاق قائمة التنقل" : "Close navigation menu") : t.menuLabel}
             aria-expanded={menuOpen}
             aria-controls="primary-navigation"
             onClick={onToggleMenu}
