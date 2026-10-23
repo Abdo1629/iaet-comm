@@ -9,6 +9,7 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SectionIndex } from "@/components/ui/SectionIndex";
 import { ResourceCard } from "@/components/home/ResourceCard";
+import { ObjectiveList } from "@/components/home/ObjectiveList";
 import {
   ArrowLeft,
   ArrowRight,
@@ -617,22 +618,7 @@ export default function Home() {
           <h2>{t.objectiveTitle}</h2>
           <p>{t.objectiveIntro}</p>
         </div>
-        <div className="objectives-list">
-          {t.objectives.map((objective, index) => (
-            <motion.article
-              className="objective-row"
-              key={objective}
-              initial={reducedMotion ? false : { opacity: 0, x: isAr ? 12 : -12 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.4, delay: index * 0.06 }}
-            >
-              <span className="objective-number">0{index + 1}</span>
-              <p>{objective}</p>
-              <ArrowUpRight className="objective-arrow" size={20} />
-            </motion.article>
-          ))}
-        </div>
+        <ObjectiveList objectives={t.objectives} reducedMotion={reducedMotion} isAr={isAr} />
       </section>
 
       <section className="academics-section section-pad" id="academic-resources">
