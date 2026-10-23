@@ -29,8 +29,8 @@ export function answerQuestion(question: string, locale: Locale) {
   if (/resource|academic|regulation|course|guide|مصادر|أكاديمي|لائحة|مقررات|دليل/.test(q)) {
     return {
       text: ar
-        ? "يمكنك الوصول إلى اللوائح ومواصفات البرنامج والمقررات ودليل الطالب من الصفحة الرسمية. تحقق من توفر كل مستند وحداثته."
-        : "The official program page lists academic resources, including regulations, program and course specifications, and student resources. Check each document's availability and currency.",
+        ? "تعرّف على اللوائح ومواصفات البرنامج والمقررات ودليل الطالب من خلال الصفحة الأكاديمية للبرنامج."
+        : "Explore academic resources, including regulations, program and course specifications, and student resources, through the program page.",
       url: official,
     };
   }
