@@ -4,8 +4,9 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
-import Image from "next/image";
 import { leadershipProfile } from "@/data/leadership";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import {
   ArrowDownLeft,
   ArrowLeft,
@@ -172,10 +173,11 @@ const content = {
     institution: "معهد هندسة وتكنولوجيا الطيران",
     program: "برنامج هندسة الإلكترونيات والاتصالات",
     nav: [
-      ["عن البرنامج", "#about"],
-      ["الرؤية والرسالة", "#vision"],
+      ["عن البرنامج", "#program"],
+      ["الرؤية والرسالة", "#vision-mission"],
       ["الأهداف", "#objectives"],
-      ["المصادر الأكاديمية", "#academics"],
+      ["المصادر الأكاديمية", "#academic-resources"],
+      ["قيادة البرنامج", "#leadership"],
     ],
     contact: "تواصل معنا",
     eyebrow: "معهد إمبابة · برنامج هندسي",
@@ -483,49 +485,7 @@ export default function Home() {
 
   return (
     <main className="site-shell">
-      <div className="announcement">
-        <span className="announcement-dot" />
-        <span>{t.proposed}</span>
-        <span className="announcement-divider">/</span>
-        <span>{t.institution}</span>
-      </div>
-
-      <header className={`site-header ${headerScrolled ? "is-scrolled" : ""}`}>
-        <a href="#top" className="brand" aria-label={t.institution}>
-          <Image src="/brand/iaet-logo.png" alt="IAET" width={68} height={45} className="official-logo" />
-          <span className="brand-copy">
-            <strong>IAET</strong>
-            <small>{isAr ? "هندسة وتكنولوجيا الطيران" : "AVIATION ENGINEERING & TECHNOLOGY"}</small>
-          </span>
-        </a>
-
-        <nav className={`desktop-nav ${menuOpen ? "nav-open" : ""}`}>
-          {t.nav.map(([label, href]) => (
-            <a key={href} href={href} onClick={() => setMenuOpen(false)}>
-              {label}
-            </a>
-          ))}
-          <a href="#contact" className="nav-contact" onClick={() => setMenuOpen(false)}>
-            {t.contact}
-            {isAr ? <ArrowDownLeft size={15} /> : <ArrowUpRight size={15} />}
-          </a>
-        </nav>
-
-        <div className="header-actions">
-          <button className="language-button" onClick={changeLocale} aria-label="Switch language">
-            <Languages size={17} />
-            {isAr ? "EN" : "عربي"}
-          </button>
-          <button
-            className="menu-toggle"
-            aria-label={t.menuLabel}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
-      </header>
+      <SiteHeader t={t} isAr={isAr} menuOpen={menuOpen} headerScrolled={headerScrolled} onChangeLocale={changeLocale} onToggleMenu={() => setMenuOpen((open) => !open)} onCloseMenu={() => setMenuOpen(false)} />
 
       <section className="hero" id="top">
         <div className="hero-grid" aria-hidden="true" />
@@ -865,34 +825,7 @@ export default function Home() {
         </form>
       </section>
 
-      <footer className="site-footer">
-        <div className="footer-grid">
-        <div>
-        <a href="#top" className="footer-brand">
-          <Image src="/brand/iaet-logo.png" alt="IAET" width={68} height={45} className="official-logo" />
-          <span><strong>IAET</strong><small>ECE / PROGRAM</small></span>
-        </a>
-        <p>{t.footerNote}</p>
-        </div>
-        <div className="footer-column">
-          <strong>{t.footerNav}</strong>
-          {t.nav.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
-          <a href="#learning-resources">{t.learningLabel}</a>
-          <a href="#contact">{t.contact}</a>
-        </div>
-        <div className="footer-column">
-          <strong>{t.contact}</strong>
-          <a href="mailto:info@iaet.edu.eg">info@iaet.edu.eg</a>
-          <a href="tel:+20233594060">02 33594060</a>
-          <a href="https://iaet.edu.eg/" target="_blank" rel="noreferrer">{t.officialWebsite}</a>
-        </div>
-        </div>
-        <div className="footer-bottom">
-          <span>© IAET · {t.program}</span>
-          <span>{t.footerDisclaimer}</span>
-          <a href="#top" className="back-top">{t.backTop} <ArrowUpRight size={14} /></a>
-        </div>
-      </footer>
+      <SiteFooter t={t} />
 
       <div className="chat-widget">
         <AnimatePresence>

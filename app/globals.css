@@ -603,3 +603,20 @@ html[dir="rtl"] .footer-bottom span:last-child { text-align: start; }
     transition-duration: .01ms !important;
   }
 }
+
+
+/* Shared site layout refinements */
+.site-header { gap: clamp(1rem, 2vw, 2rem); }
+.site-header .desktop-nav { flex-wrap: wrap; }
+.site-header .desktop-nav a:focus-visible,
+.site-header button:focus-visible,
+.site-footer a:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; border-radius: 4px; }
+.site-footer .footer-brand-column > p { max-width: 34ch; line-height: 1.7; }
+.site-footer .footer-column a { width: fit-content; }
+.site-footer .footer-column a:hover { color: var(--cyan); }
+html { scroll-padding-top: 7rem; }
+@media (max-width: 760px) {
+  .site-header { gap: .75rem; }
+  .site-header .brand-copy small { max-width: 12rem; }
+  .site-footer .footer-bottom { align-items: flex-start; }
+}
