@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Languages, Menu, X } from "lucide-react";
 
@@ -29,6 +31,7 @@ export function SiteHeader({
   onCloseMenu: () => void;
 }) {
   const reduceMotion = useReducedMotion();
+  const pathname = usePathname();
 
   return (
     <>
@@ -46,7 +49,7 @@ export function SiteHeader({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
       >
-        <a href="/" className="brand" aria-label={t.institution} onClick={onCloseMenu}>
+        <Link href="/" className="brand" aria-label={t.institution} onClick={onCloseMenu}>
           <span className="brand-logo-wrap">
             <Image
               src="/brand/iaet-logo.png"
@@ -61,28 +64,32 @@ export function SiteHeader({
             <strong>IAET</strong>
             <small>{isAr ? "هندسة وتكنولوجيا الطيران" : "AVIATION ENGINEERING & TECHNOLOGY"}</small>
           </span>
-        </a>
+        </Link>
 
         <nav
           id="primary-navigation"
           className={`desktop-nav ${menuOpen ? "nav-open" : ""}`}
           aria-label={isAr ? "التنقل الرئيسي" : "Main navigation"}
         >
-          {t.nav.map(([label, href], index) => (
+          {t.nav.map(([label, href], index) => {
+            const isActive = pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
+            return (
             <motion.a
-              key={href}
+              key={href + (menuOpen ? "-open" : "-closed")}
               href={href}
               onClick={onCloseMenu}
-              className="nav-item"
-              initial={false}
-              animate={menuOpen && !reduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+              className={"nav-item" + (isActive ? " is-active" : "")}
+              aria-current={isActive ? "page" : undefined}
+              initial={menuOpen && !reduceMotion ? { opacity: 0, y: 8 } : false}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.24, delay: menuOpen && !reduceMotion ? index * 0.045 : 0 }}
               whileHover={reduceMotion ? undefined : { y: -1 }}
             >
               {label}
             </motion.a>
-          ))}
-          <a href="/contact" className="nav-contact" onClick={onCloseMenu}>
+            );
+          })}
+          <a href="/contact" className={"nav-contact" + (pathname === "/contact" ? " is-active" : "")} aria-current={pathname === "/contact" ? "page" : undefined} onClick={onCloseMenu}>
             <span>{t.contact}</span>
             <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" />
           </a>
