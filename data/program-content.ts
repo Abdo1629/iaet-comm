@@ -58,7 +58,7 @@ export const content = {
       },
       {
         title: "Academic documents",
-        description: "Published regulations, specifications and student resources.",
+        description: "Regulations, specifications and student resources.",
         links: [
           ["Internal regulations", "https://www.iaet.edu.eg/comm"],
           ["Program & course specifications", "https://www.iaet.edu.eg/comm"],
@@ -97,7 +97,7 @@ export const content = {
       "",
     assistant: "IAET Program Assistant",
     assistantDescription:
-      "I can help you locate published program information.",
+      "I can help you explore the program and its academic resources.",
     starter: "Suggested questions",
     questions: [
       "What is the program vision?",
@@ -111,11 +111,10 @@ export const content = {
     unknown:
       "Explore the program pages or contact the institute for further information.",
     greeting:
-      "Hello! Ask me about the published program vision, objectives, academic resources or contact information.",
+      "Hello! Ask me about the program vision, objectives, academic resources or contact information.",
     close: "Close assistant",
     openAssistant: "Open program assistant",
     menuLabel: "Open navigation menu",
-    proposed: "PROPOSED DESIGN",
     formName: "Full name",
     formEmail: "Email address",
     formSubject: "Inquiry category",
@@ -130,7 +129,6 @@ export const content = {
     formReady: "Your email draft is ready. Please review it before sending.",
     education: "Education",
     research: "Research interests",
-    profileNote: "Edited from the supplied CV; current title and publication details require institutional confirmation.",
     footerNav: "Quick navigation",
     officialWebsite: "Official IAET website",
     backTop: "Back to top",
@@ -230,7 +228,7 @@ export const content = {
     footerDisclaimer:
       "",
     assistant: "مساعد البرنامج",
-    assistantDescription: "أساعدك في الوصول إلى المعلومات المنشورة عن البرنامج.",
+    assistantDescription: "أساعدك في استكشاف البرنامج ومصادره الأكاديمية.",
     starter: "أسئلة مقترحة",
     questions: [
       "ما رؤية البرنامج؟",
@@ -244,11 +242,10 @@ export const content = {
     unknown:
       "يمكنك استكشاف صفحات البرنامج أو التواصل مع المعهد للحصول على مزيد من التفاصيل.",
     greeting:
-      "أهلًا بك! اسألني عن الرؤية المنشورة أو أهداف البرنامج أو المصادر الأكاديمية أو بيانات التواصل.",
+      "أهلًا بك! اسألني عن رؤية البرنامج أو أهدافه أو مصادره الأكاديمية أو بيانات التواصل.",
     close: "إغلاق المساعد",
     openAssistant: "فتح مساعد البرنامج",
     menuLabel: "فتح قائمة التنقل",
-    proposed: "مقترح تصميمي",
     formName: "الاسم الكامل",
     formEmail: "البريد الإلكتروني",
     formSubject: "نوع الاستفسار",
@@ -263,7 +260,6 @@ export const content = {
     formReady: "تم تجهيز مسودة البريد. يرجى مراجعتها قبل الإرسال.",
     education: "التعليم",
     research: "الاهتمامات البحثية",
-    profileNote: "محتوى محرر من السيرة الذاتية المرفقة؛ يحتاج المسمى الحالي وبيانات النشر إلى اعتماد المعهد.",
     footerNav: "تنقل سريع",
     officialWebsite: "موقع IAET الرسمي",
     backTop: "العودة إلى الأعلى",
