@@ -28,13 +28,8 @@ const pages = {
 
 export default function NavigationPage() {
   const [isAr, setIsAr] = useState(false);
-  const [year, setYear] = useState(2026);
   const reducedMotion = useReducedMotion();
   const t = pages[isAr ? "ar" : "en"];
-
-  useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
 
   useEffect(() => {
     document.documentElement.lang = isAr ? "ar" : "en";
@@ -78,7 +73,7 @@ export default function NavigationPage() {
       </section>
 
       <footer className="navigation-footer">
-        <span>© {year} IAET · {isAr ? "برنامج هندسة الإلكترونيات والاتصالات" : "Electronics & Communications Engineering"}</span>
+        <span>© IAET · {isAr ? "برنامج هندسة الإلكترونيات والاتصالات" : "Electronics & Communications Engineering"}</span>
         <Link href="/">{isAr ? "العودة إلى الرئيسية" : "Back to homepage"}</Link>
       </footer>
     </main>
