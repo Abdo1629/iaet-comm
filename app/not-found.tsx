@@ -1,17 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Compass, Home, Radio } from "lucide-react";
 
 export default function NotFound() {
   const reducedMotion = useReducedMotion();
-  const [year, setYear] = useState(2026);
-
-  useEffect(() => {
-    setYear(new Date().getFullYear());
-  }, []);
 
   return (
     <main className="not-found-page">
@@ -37,7 +31,7 @@ export default function NotFound() {
         </motion.div>
         <div className="not-found-orbit" aria-hidden="true"><span /><span /><span /><i /></div>
       </section>
-      <footer className="navigation-footer"><span>© {year} IAET · Electronics & Communications Engineering</span><span>Institute of Aviation Engineering & Technology</span></footer>
+      <footer className="navigation-footer"><span>© IAET · Electronics & Communications Engineering</span><span>Institute of Aviation Engineering & Technology</span></footer>
     </main>
   );
 }
