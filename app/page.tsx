@@ -403,9 +403,6 @@ export default function Home() {
                 />
                 <button type="submit" aria-label={t.send}><Send size={17} /></button>
               </form>
-              <div className="chat-prototype-note">
-                {isAr ? "نموذج تجريبي بإجابات محلية، وليس خدمة ذكاء اصطناعي مباشرة." : "Local FAQ prototype; no live AI backend."}
-              </div>
             </motion.section>
           )}
         </AnimatePresence>
