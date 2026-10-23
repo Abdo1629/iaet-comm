@@ -1,6 +1,6 @@
 export const leadershipProfile = {
   name: "Mohamed Sobhy Elbakry",
-  designation: "Academic profile · confirmation required for current title",
+  designation: "Academic profile",
   summary:
     "An electronics and electrical communications engineer whose academic work covers signal processing, multiple access techniques, MIMO systems, interference mitigation and indoor optical wireless communications.",
   education: [
