@@ -9,6 +9,7 @@ export function SiteHeader({t,isAr,menuOpen,headerScrolled,onChangeLocale,onTogg
    <a href="#top" className="brand" aria-label={t.institution}><Image src="/brand/iaet-logo.png" alt="IAET" width={68} height={45} className="official-logo" priority /><span className="brand-copy"><strong>IAET</strong><small>{isAr ? "هندسة وتكنولوجيا الطيران" : "AVIATION ENGINEERING & TECHNOLOGY"}</small></span></a>
    <nav id="primary-navigation" className={`desktop-nav ${menuOpen ? "nav-open" : ""}`} aria-label={isAr ? "التنقل الرئيسي" : "Main navigation"}>
     {t.nav.map(([label,href])=><a key={href} href={href} onClick={onCloseMenu}>{label}</a>)}
+    <a href="/navigation" className="nav-map-link" onClick={onCloseMenu}>{isAr ? "كل الأقسام" : "All sections"}</a>
     <a href="#contact" className="nav-contact" onClick={onCloseMenu}>{t.contact}{isAr?<ArrowDownLeft size={15} aria-hidden="true"/>:<ArrowUpRight size={15} aria-hidden="true"/>}</a>
    </nav>
    <div className="header-actions">
