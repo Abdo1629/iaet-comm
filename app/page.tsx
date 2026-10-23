@@ -649,13 +649,6 @@ export default function Home() {
           {t.resourceGroups.map((group, index) => (
             <ResourceCard key={group.title} group={group} index={index} reducedMotion={reducedMotion} isAr={isAr} officialPage={t.officialPage} />
           ))}
-              </div>
-              <a className="resource-main-link" href={sourceUrl[locale]} target="_blank" rel="noreferrer">
-                {t.officialPage}
-                {isAr ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
-              </a>
-            </motion.article>
-          ))}
         </div>
         <p className="resource-disclaimer">
           <ShieldCheck size={16} />
