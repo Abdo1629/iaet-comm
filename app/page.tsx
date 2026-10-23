@@ -7,8 +7,9 @@ import gsap from "gsap";
 import { leadershipProfile } from "@/data/leadership";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SectionIndex } from "@/components/ui/SectionIndex";
+import { ResourceCard } from "@/components/home/ResourceCard";
 import {
-  ArrowDownLeft,
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
@@ -19,8 +20,6 @@ import {
   ExternalLink,
   FileText,
   GraduationCap,
-  Languages,
-  Menu,
   MessageCircle,
   Network,
   Radio,
@@ -563,10 +562,7 @@ export default function Home() {
       </section>
 
       <section className="intro-section section-pad" id="program">
-        <div className="section-index">
-          <span>{t.aboutEyebrow}</span>
-          <span className="index-line" />
-        </div>
+        <SectionIndex label={t.aboutEyebrow} />
         <div className="intro-layout">
           <h2>{t.aboutTitle}</h2>
           <div className="intro-copy">
@@ -584,10 +580,7 @@ export default function Home() {
       </section>
 
       <section className="vision-section section-pad" id="vision-mission">
-        <div className="section-index">
-          <span>{t.visionLabel}</span>
-          <span className="index-line" />
-        </div>
+        <SectionIndex label={t.visionLabel} />
         <div className="vision-grid">
           <motion.article
             className="vision-panel vision-primary"
@@ -623,10 +616,7 @@ export default function Home() {
       </section>
 
       <section className="objectives-section section-pad" id="objectives">
-        <div className="section-index">
-          <span>{t.objectiveLabel}</span>
-          <span className="index-line" />
-        </div>
+        <SectionIndex label={t.objectiveLabel} />
         <div className="objectives-heading">
           <h2>{t.objectiveTitle}</h2>
           <p>{t.objectiveIntro}</p>
@@ -650,49 +640,15 @@ export default function Home() {
       </section>
 
       <section className="academics-section section-pad" id="academic-resources">
-        <div className="section-index">
-          <span>{t.academicLabel}</span>
-          <span className="index-line" />
-        </div>
+        <SectionIndex label={t.academicLabel} />
         <div className="academics-heading">
           <h2>{t.academicTitle}</h2>
           <p>{t.academicIntro}</p>
         </div>
         <div className="resource-grid">
           {t.resourceGroups.map((group, index) => (
-            <motion.article
-              className="resource-panel"
-              key={group.title}
-              initial={reducedMotion ? false : { opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{ duration: 0.45, delay: index * 0.08 }}
-            >
-              <div className="resource-top">
-                <span className="resource-number">0{index + 1}</span>
-                {index === 0 ? (
-                  <GraduationCap size={24} />
-                ) : index === 1 ? (
-                  <BookOpen size={24} />
-                ) : (
-                  <FileText size={24} />
-                )}
-              </div>
-              <h3>{group.title}</h3>
-              <p className="resource-description">{group.description}</p>
-              <div className="resource-links">
-                {group.links.map(([label, url]) => (
-                  <a
-                    key={label}
-                    href={url}
-                    {...(url.startsWith("http")
-                      ? { target: "_blank", rel: "noreferrer" }
-                      : {})}
-                  >
-                    <span>{label}</span>
-                    <ExternalLink size={15} />
-                  </a>
-                ))}
+            <ResourceCard key={group.title} group={group} index={index} reducedMotion={reducedMotion} isAr={isAr} officialPage={t.officialPage} />
+          ))}
               </div>
               <a className="resource-main-link" href={sourceUrl[locale]} target="_blank" rel="noreferrer">
                 {t.officialPage}
@@ -714,10 +670,7 @@ export default function Home() {
           <Sparkles size={30} strokeWidth={1.2} />
         </div>
         <div className="leadership-content">
-          <div className="section-index">
-            <span>{t.leadershipLabel}</span>
-            <span className="index-line" />
-          </div>
+        <SectionIndex label={t.leadershipLabel} />
           <h2>{t.leadershipTitle}</h2>
           <p>{t.leadershipText}</p>
           <div className="profile-summary">
@@ -766,10 +719,7 @@ export default function Home() {
       </section>
 
       <section className="contact-section section-pad" id="contact">
-        <div className="section-index">
-          <span>{t.contactLabel}</span>
-          <span className="index-line" />
-        </div>
+        <SectionIndex label={t.contactLabel} />
         <div className="contact-layout">
           <h2>{t.contactTitle}</h2>
           <div className="contact-details">
