@@ -121,7 +121,7 @@ export default function Home() {
           ease: "power2.out",
         },
       );
-    }, heroVisual);
+    }, heroVisual.current.closest(".hero") ?? undefined);
 
     return () => ctx.revert();
   }, [reducedMotion, isAr]);
