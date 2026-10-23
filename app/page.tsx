@@ -60,6 +60,32 @@ export default function Home() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
+        heroVisual.current,
+        { opacity: 0, x: isAr ? -24 : 24, scale: 0.97 },
+        {
+          opacity: 1,
+          x: 0,
+          scale: 1,
+          duration: 0.9,
+          delay: 0.1,
+          ease: "power3.out",
+        },
+      );
+
+      gsap.fromTo(
+        ".hero-copy > *",
+        { opacity: 0, y: 16 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.62,
+          stagger: 0.1,
+          delay: 0.08,
+          ease: "power3.out",
+        },
+      );
+
+      gsap.fromTo(
         ".signal-orbit",
         { rotation: -12, scale: 0.96, opacity: 0.65 },
         {
@@ -98,7 +124,7 @@ export default function Home() {
     }, heroVisual);
 
     return () => ctx.revert();
-  }, [reducedMotion]);
+  }, [reducedMotion, isAr]);
 
   function sendQuestion(value = question) {
     const trimmed = value.trim();
@@ -160,9 +186,8 @@ export default function Home() {
         <div className="hero-inner">
           <motion.div
             className="hero-copy"
-            initial={reducedMotion ? false : { opacity: 0, y: 18 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: "easeOut" }}
           >
             <div className="eyebrow hero-eyebrow">
               <span className="eyebrow-line" />
