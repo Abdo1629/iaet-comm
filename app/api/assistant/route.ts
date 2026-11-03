@@ -57,6 +57,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const question = typeof body.question === "string" ? body.question.trim() : "";
     const locale = body.locale === "ar" ? "ar" : "en";
+    const history = Array.isArray(body.history) ? body.history.slice(-8).filter((item: { role?: string; text?: string }) => (item?.role === "user" || item?.role === "assistant") && typeof item.text === "string").map((item: { role: string; text: string }) => ({ role: item.role === "assistant" ? "model" : "user", parts: [{ text: item.text.slice(0, 1200) }] })) : [];
     if (!question || question.length > 1200) {
       return NextResponse.json({ error: "Please enter a question (up to 1,200 characters)." }, { status: 400 });
     }
@@ -77,7 +78,7 @@ Knowledge base: ${knowledgeBase()}`;
         cache: "no-store",
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: systemInstruction }] },
-          contents: [{ role: "user", parts: [{ text: question }] }],
+          contents: [...history, { role: "user", parts: [{ text: question }] }],
           generationConfig: {
             responseMimeType: "application/json",
             responseSchema: {
