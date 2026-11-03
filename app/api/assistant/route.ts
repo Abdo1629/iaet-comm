@@ -2,8 +2,6 @@ import { NextResponse } from "next/server";
 import { content, sourceUrl } from "@/data/program-content";
 import { leadershipProfile } from "@/data/leadership";
 
-export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
 
 const allowedLinks = [
   { label: "IAET official website", url: "https://www.iaet.edu.eg/" },
