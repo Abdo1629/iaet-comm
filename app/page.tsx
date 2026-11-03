@@ -155,7 +155,7 @@ export default function Home() {
       const response = await fetch("/api/assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: trimmed, locale }),
+        body: JSON.stringify({ question: trimmed, locale, history: messages.slice(-8).map(({ role, text }) => ({ role, text })) }),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Assistant unavailable");
@@ -317,7 +317,7 @@ export default function Home() {
           <div className="profile-summary">
             <div>
               <strong>{leadershipProfile.name}</strong>
-              <span>{isAr ? "الملف الأكاديمي" : "Academic profile"}</span>
+              <span>{isAr ? "رئيس قسم هندسة الإلكترونيات والاتصالات" : "Head of Electronics & Communications Engineering Department"}</span>
             </div>
             <p>{leadershipProfile.summary}</p>
           </div>
