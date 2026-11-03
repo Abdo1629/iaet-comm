@@ -6,7 +6,6 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
 import { leadershipProfile } from "@/data/leadership";
 import { content, sourceUrl, type Locale } from "@/data/program-content";
-import { answerQuestion } from "@/lib/program-assistant";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SectionIndex } from "@/components/ui/SectionIndex";
@@ -32,6 +31,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [question, setQuestion] = useState("");
+  const [chatLoading, setChatLoading] = useState(false);
   const [headerScrolled, setHeaderScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("top");
   const [formState, setFormState] = useState<"idle" | "ready">("idle");
@@ -143,18 +143,41 @@ export default function Home() {
     return () => ctx.revert();
   }, [reducedMotion, isAr]);
 
-  function sendQuestion(value = question) {
+  async function sendQuestion(value = question) {
     const trimmed = value.trim();
-    if (!trimmed) return;
+    if (!trimmed || chatLoading) return;
 
-    const result = answerQuestion(trimmed, locale);
-
-    setMessages((prev) => [
-      ...prev,
-      { role: "user", text: trimmed },
-      { role: "assistant", text: result.text, url: result.url },
-    ]);
+    setMessages((prev) => [...prev, { role: "user", text: trimmed }]);
     setQuestion("");
+    setChatLoading(true);
+
+    try {
+      const response = await fetch("/api/assistant", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question: trimmed, locale }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Assistant unavailable");
+      const firstLink = Array.isArray(data.links) ? data.links[0] : undefined;
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", text: data.answer, url: firstLink?.url },
+      ]);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Please try again.";
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          text: isAr
+            ? `حصلت مشكلة مؤقتة: ${message}`
+            : `A temporary issue occurred: ${message}`,
+        },
+      ]);
+    } finally {
+      setChatLoading(false);
+    }
   }
 
   function changeLocale() {
@@ -423,11 +446,12 @@ export default function Home() {
                     )}
                   </div>
                 ))}
+                {chatLoading && <div className="chat-message assistant chat-typing" role="status"><span /><span /><span /></div>}
               </div>
               <div className="chat-suggestions">
                 <span>{t.starter}</span>
                 {t.questions.map((q) => (
-                  <button key={q} onClick={() => sendQuestion(q)}>{q}</button>
+                  <button key={q} onClick={() => sendQuestion(q)} disabled={chatLoading}>{q}</button>
                 ))}
               </div>
               <form
@@ -442,8 +466,10 @@ export default function Home() {
                   onChange={(event) => setQuestion(event.target.value)}
                   placeholder={t.placeholder}
                   aria-label={t.placeholder}
+                  maxLength={1200}
+                  disabled={chatLoading}
                 />
-                <button type="submit" aria-label={t.send}><Send size={17} /></button>
+                <button type="submit" aria-label={t.send} disabled={chatLoading || !question.trim()}>{chatLoading ? <span className="chat-send-loader" /> : <Send size={17} />}</button>
               </form>
             </motion.section>
           )}
