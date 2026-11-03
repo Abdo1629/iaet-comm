@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef } from "react";
-import { Cpu, Network, Radio, Signal } from "lucide-react";
+import { Cpu, Network, Plane, Radio, Signal } from "lucide-react";
 
 type HeroVisualProps = { label: string };
 
@@ -11,18 +11,20 @@ export const HeroVisual = forwardRef<HTMLDivElement, HeroVisualProps>(
       <div className="hero-visual" ref={ref} aria-label={label}>
         <div className="visual-label visual-label-top">
           <span className="live-dot" />
-          SIGNAL / 001
+          AIRCRAFT / SIGNAL / 001
         </div>
         <div className="signal-orbit">
           <div className="orbit orbit-outer" />
           <div className="orbit orbit-middle" />
           <div className="orbit orbit-inner" />
-          <div className="signal-core">
-            <Radio size={42} strokeWidth={1.15} />
+          <div className="signal-core aircraft-core">
+            <Plane size={48} strokeWidth={1.15} aria-hidden="true" />
+            <span>IAET / ECE</span>
           </div>
           <div className="signal-node node-one"><Network size={19} /></div>
           <div className="signal-node node-two"><Cpu size={18} /></div>
           <div className="signal-node node-three"><Signal size={18} /></div>
+          <div className="signal-node node-radio"><Radio size={18} /></div>
           <svg className="signal-paths" viewBox="0 0 440 440" fill="none" aria-hidden="true">
             <path d="M220 220 L220 64 L320 64" />
             <path d="M220 220 L375 220 L375 300" />
@@ -36,8 +38,8 @@ export const HeroVisual = forwardRef<HTMLDivElement, HeroVisualProps>(
             <circle cx="220" cy="380" r="3" />
           </svg>
         </div>
-        <div className="visual-coordinate coordinate-one">31°08&apos; N</div>
-        <div className="visual-coordinate coordinate-two">SIGNAL / STRUCTURE / CONNECTION</div>
+        <div className="visual-coordinate coordinate-one">IMBABA / GIZA</div>
+        <div className="visual-coordinate coordinate-two">FLIGHT SYSTEMS / ELECTRONICS / COMMUNICATION</div>
         <div className="visual-label visual-label-bottom">
           <span>IAET / ECE</span>
           <span>EST. 1997</span>
