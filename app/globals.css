@@ -1584,3 +1584,52 @@ html[dir="rtl"] .site-header .desktop-nav .nav-item::after {
   .site-header .desktop-nav .nav-item::after { transition: none; }
   .hero-copy > *, .hero-visual { will-change: auto; }
 }
+
+
+/* Aviation identity inside the communications-led hero visual */
+.aircraft-core {
+  width: 124px;
+  height: 124px;
+  gap: 3px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 42%, rgb(114 225 227 / 12%), transparent 62%),
+    #103849;
+  box-shadow:
+    0 0 0 10px rgb(114 225 227 / 4%),
+    0 0 0 1px rgb(114 225 227 / 18%),
+    0 0 70px rgb(114 225 227 / 12%);
+}
+.aircraft-core svg {
+  color: var(--cyan);
+  filter: drop-shadow(0 0 12px rgb(114 225 227 / 24%));
+}
+.aircraft-core span {
+  color: #a8cbd2;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+.node-radio {
+  top: 72%;
+  right: 19%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(114 225 227 / 65%);
+  color: var(--cyan);
+  background: #123b4d;
+}
+.visual-label-top {
+  color: #b8d5dc;
+}
+.visual-label-top .live-dot {
+  box-shadow: 0 0 0 5px rgb(114 225 227 / 10%), 0 0 15px rgb(114 225 227 / 55%);
+}
+@media (max-width: 760px) {
+  .aircraft-core { width: 104px; height: 104px; }
+  .aircraft-core svg { width: 40px; height: 40px; }
+  .node-radio { width: 35px; height: 35px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aircraft-core svg { filter: none; }
+}
