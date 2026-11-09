@@ -1,48 +1,89 @@
 # IAET · Electronics & Communications
 
-A bilingual (Arabic / English) institutional landing page for the Electronics & Communications Engineering Department at the Institute of Aviation Engineering & Technology.
+A bilingual (Arabic / English) multi-page academic website for the Electronics & Communications Engineering Program at the Institute of Aviation Engineering & Technology. The project is designed to live under an IAET-approved subdomain and remain visually and institutionally connected to the main IAET website.
+
+## Website pages
+
+- Home
+- Program overview
+- Academic program and study resources
+- Faculty and supporting staff
+- Laboratories and facilities
+- Research and graduation projects
+- Student services and resources
+- Quality assurance
+- News and events
+- Alumni
+- Contact
+- Full site directory
+
+All page templates support Arabic RTL and English LTR. The interface is light-mode only, responsive, and includes the IAET program assistant.
 
 ## Stack
+
 - Next.js App Router + React + TypeScript
 - Framer Motion + GSAP
 - Responsive RTL/LTR interface
-- Gemini 3.5 Flash Lite assistant through a server-only API route
+- Gemini assistant through a server-only API route
+- Page-specific metadata, Open Graph / Twitter metadata, JSON-LD organization data, robots and sitemap routes
 
 ## Local setup
+
 ```bash
 npm install
 cp .env.example .env.local
 ```
-Add your Gemini API key to `.env.local`:
+
+Set the following values in `.env.local`:
+
 ```env
-GEMINI_API_KEY=your_key_here
+GEMINI_API_KEY=
+NEXT_PUBLIC_SITE_URL=
 ```
-Then run `npm run dev`.
 
-The key is read only by `app/api/assistant/route.ts`. The route uses `gemini-3.5-flash-lite`, with a 20-second upstream timeout and a 30-second Vercel function limit. Do not use a `NEXT_PUBLIC_` prefix and never commit `.env.local`.
+- `GEMINI_API_KEY` is used only by `app/api/assistant/route.ts`. Never expose it through a `NEXT_PUBLIC_` variable and never commit `.env.local`.
+- `NEXT_PUBLIC_SITE_URL` must be the exact, approved department subdomain after IAET IT provisions it. It is used to generate the sitemap. Do not set it to the parent IAET domain unless that is where this project is actually deployed.
 
-## Vercel setup
-1. Open the project in Vercel.
-2. Go to **Settings → Environment Variables**.
-3. Add `GEMINI_API_KEY` with the value created in Google AI Studio.
-4. Enable it for Preview and Production.
-5. Redeploy the latest deployment.
+Run `npm run dev` for local development.
 
-If the key is missing, the page still builds and renders; the assistant endpoint returns a clear configuration message.
+## Vercel and subdomain launch
 
-## Knowledge base and content review
-The assistant uses a curated knowledge base assembled from `data/program-content.ts` and `data/leadership.ts`, plus institute facts currently visible on the official IAET website. Its navigation links are allowlisted in the API route; it cannot invent arbitrary page URLs.
+1. Import the repository into the IAET-approved Vercel project.
+2. Add `GEMINI_API_KEY` in Vercel Environment Variables for the required environments.
+3. Set `NEXT_PUBLIC_SITE_URL` to the final department subdomain URL, including `https://`.
+4. Add the exact same subdomain in Vercel Project Settings → Domains.
+5. Ask IAET IT to create the required DNS record and confirm SSL provisioning.
+6. Redeploy after the domain and environment variables are configured.
+7. Verify the sitemap at `/sitemap.xml`, crawler rules at `/robots.txt`, and all canonical/social metadata against the live subdomain.
 
-Before public launch, the department should review and supply:
-- Department head's approved title, profile, welcome message and portrait.
-- Current staff and teaching-assistant directory.
-- Approved program specification, course descriptions and study regulations.
-- Academic calendar, announcements, forms and student guides.
-- Laboratory names, equipment, facilities and research activity.
-- Correct official URLs for each resource and institute-wide pages.
-- Approved Arabic and English wording for institutional content.
+The final subdomain is not assumed in source code. It must be approved and provisioned by IAET.
 
-Until that review is complete, treat academic details and the chatbot knowledge base as a presentation prototype, not a source of official student guidance.
+## Assistant and knowledge base
 
-## Validation
-Run `npm run build` before release. Also test Arabic/English switching, keyboard navigation, mobile menu, chatbot with and without the API key, and all external links on real mobile and desktop viewports.
+The assistant uses `data/program-content.ts`, `data/leadership.ts`, `data/site-pages.ts` and institute facts currently visible on the official IAET website. Internal page links and official external links are allowlisted in the API route. The assistant must not invent staff details, fees, admission dates, schedules, regulations, course plans, room numbers or unsupported URLs.
+
+The department data request is documented in [docs/DEPARTMENT_DATA_REQUEST.md](docs/DEPARTMENT_DATA_REQUEST.md). It lists the information, source files, approvals and assets required before public launch.
+
+## Content status
+
+Some pages are populated with information already visible on the public IAET website. Academic documents, staff lists, laboratory inventories, research records, accreditation evidence, news archives and department-specific contact channels must be verified and updated by the department. Old or restricted SharePoint links are not treated as current approved downloads.
+
+Until that review is complete, the website is a developed bilingual implementation with clearly identified content-verification requirements, not an official source for student decisions.
+
+## Validation before launch
+
+Run:
+
+```bash
+npm run lint
+npm run build
+```
+
+Then test:
+- All routes and internal/external links.
+- Arabic/English switching and RTL/LTR layout.
+- Mobile navigation and responsive layouts.
+- Assistant with and without a configured API key.
+- Keyboard navigation, focus states and reduced-motion behavior.
+- Metadata, structured data, robots and sitemap on the final subdomain.
+- Every academic document and public-facing claim with the department's approver.
