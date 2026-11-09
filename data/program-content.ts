@@ -14,9 +14,9 @@ export const content = {
     ],
     contact: "Contact",
     eyebrow: "IAET · ENGINEERING PROGRAM",
-    headline: "Every signal begins a connection.",
+    headline: "Where aviation meets communication.",
     heroDescription:
-      "Explore the vision, objectives and academic resources of the Electronics & Communications Engineering Program at IAET.",
+      "Explore the connection between electronics, communication systems and the aviation environment at IAET — where signals, data and aircraft systems meet.",
     explore: "Explore the program",
     resources: "Academic resources",
     scroll: "SCROLL TO EXPLORE",
