@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "معهد هندسة وتكنولوجيا الطيران",
     "هندسة الإلكترونيات والاتصالات",
   ],
-  robots: { index: true, follow: true, maxImagePreview: "large" },
+  robots: { index: true, follow: true, max-image-preview: "large" },
   openGraph: {
     title: "Electronics & Communications Engineering | IAET",
     description: "Explore the academic program, faculty, laboratories, research, student resources and official department information at IAET.",
