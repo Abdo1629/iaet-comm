@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef } from "react";
-import { Activity, Antenna, AudioWaveform, Crosshair, RadioTower } from "lucide-react";
+import { Activity, AudioWaveform, Crosshair, RadioTower } from "lucide-react";
 
 type HeroVisualProps = { label: string };
 
@@ -64,7 +64,7 @@ export const HeroVisual = forwardRef<HTMLDivElement, HeroVisualProps>(
           <span className="caption-wave"><AudioWaveform size={16} /> SIGNAL IN MOTION</span>
         </div>
 
-        <div className="hero-coordinate-mark"><Activity size={13} /> 30° 06' N — 31° 12' E</div>
+        <div className="hero-coordinate-mark"><Activity size={13} /> 30° 06&apos; N — 31° 12&apos; E</div>
       </div>
     );
   },
