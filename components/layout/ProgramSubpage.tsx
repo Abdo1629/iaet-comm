@@ -13,6 +13,7 @@ type ChatMessage = { role: "assistant" | "user"; text: string; url?: string };
 export function ProgramSubpage({ slug }: { slug: SitePageSlug }) {
   const [locale, setLocale] = useState<Locale>("en");
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
@@ -71,12 +72,12 @@ export function ProgramSubpage({ slug }: { slug: SitePageSlug }) {
       <SiteHeader
         t={t}
         isAr={isAr}
-        menuOpen={false}
+        menuOpen={menuOpen}
         headerScrolled={scrolled}
         activeSection={slug}
         onChangeLocale={() => setLocale((current) => current === "en" ? "ar" : "en")}
-        onToggleMenu={() => {}}
-        onCloseMenu={() => {}}
+        onToggleMenu={() => setMenuOpen((open) => !open)}
+        onCloseMenu={() => setMenuOpen(false)}
       />
 
       <section className="subpage-hero">
