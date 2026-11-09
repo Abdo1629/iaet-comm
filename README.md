@@ -6,7 +6,7 @@ A bilingual (Arabic / English) institutional landing page for the Electronics & 
 - Next.js App Router + React + TypeScript
 - Framer Motion + GSAP
 - Responsive RTL/LTR interface
-- Gemini 2.5 Flash assistant through a server-only API route
+- Gemini 3.5 Flash Lite assistant through a server-only API route
 
 ## Local setup
 ```bash
@@ -19,7 +19,7 @@ GEMINI_API_KEY=your_key_here
 ```
 Then run `npm run dev`.
 
-The key is read only by `app/api/assistant/route.ts`. Do not use a `NEXT_PUBLIC_` prefix and never commit `.env.local`.
+The key is read only by `app/api/assistant/route.ts`. The route uses `gemini-3.5-flash-lite`, with a 20-second upstream timeout and a 30-second Vercel function limit. Do not use a `NEXT_PUBLIC_` prefix and never commit `.env.local`.
 
 ## Vercel setup
 1. Open the project in Vercel.
