@@ -264,6 +264,66 @@ export default function Home() {
         </a>
       </section>
 
+      <motion.section
+        className="aviation-showcase"
+        id="aviation-connection"
+        initial={reducedMotion ? false : { opacity: 0, y: 35 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.12 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <div className="showcase-heading">
+          <div className="showcase-kicker"><span /> {isAr ? "هندسة واحدة — عالمان متصلان" : "ONE DISCIPLINE — TWO CONNECTED WORLDS"}</div>
+          <h2>{isAr ? <>من قمرة القيادة إلى <em>شبكات الاتصال.</em></> : <>From the flight deck to <em>the signal network.</em></>}</h2>
+          <p>{isAr ? "في بيئة هندسة الطيران، لا تعمل الإلكترونيات والاتصالات في فراغ؛ إنها جزء من الأنظمة التي تساعد الطائرات والمطارات على تبادل البيانات والتواصل ومتابعة الحركة." : "In an aviation engineering environment, electronics and communications are not abstract ideas. They are part of the systems that help aircraft and airports exchange data, communicate and understand movement."}</p>
+        </div>
+        <div className="showcase-visual-grid">
+          <a className="showcase-image-card showcase-aircraft" href="https://commons.wikimedia.org/wiki/File:Boeing_787_front_view.jpg" target="_blank" rel="noreferrer">
+            <div className="showcase-image-bg" />
+            <div className="showcase-image-shade" />
+            <span className="showcase-card-index">01 / AIRCRAFT</span>
+            <div className="showcase-card-copy">
+              <span>{isAr ? "الطيران" : "THE AIRCRAFT"}</span>
+              <strong>{isAr ? "أنظمة الطيران" : "Aircraft systems"}</strong>
+              <small>{isAr ? "إلكترونيات • بيانات • أنظمة مدمجة" : "Electronics · Data · Embedded systems"}</small>
+            </div>
+            <span className="showcase-open">↗</span>
+            <span className="showcase-credit">Photo: AlexanderCraker / CC BY-SA 4.0</span>
+          </a>
+          <a className="showcase-image-card showcase-radar" href="https://commons.wikimedia.org/wiki/File:Cancun_International_Airport%27s_air_traffic_control_tower_and_a_radar_dome.jpg" target="_blank" rel="noreferrer">
+            <div className="showcase-image-bg" />
+            <div className="showcase-image-shade" />
+            <span className="showcase-card-index">02 / SURVEILLANCE</span>
+            <div className="showcase-card-copy">
+              <span>{isAr ? "المراقبة الجوية" : "AIRSPACE AWARENESS"}</span>
+              <strong>{isAr ? "الرادار وتتبع الحركة" : "Radar & tracking"}</strong>
+              <small>{isAr ? "استشعار • إشارات • معالجة بيانات" : "Sensing · Signals · Data processing"}</small>
+            </div>
+            <span className="showcase-open">↗</span>
+            <span className="showcase-credit">Photo: Oleg Yunakov / CC BY-SA 4.0</span>
+          </a>
+          <div className="showcase-signal-card">
+            <div className="signal-card-orbit"><span /><span /><span /><i /></div>
+            <div className="signal-card-top"><span className="signal-card-live" /> {isAr ? "عالم الإشارات" : "THE SIGNAL LAYER"}</div>
+            <div className="signal-card-wave">
+              <svg viewBox="0 0 500 130" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0 65 C35 65 35 16 70 16 S105 114 140 114 S175 65 210 65 S245 16 280 16 S315 114 350 114 S385 65 420 65 S455 65 500 65" />
+              </svg>
+            </div>
+            <div className="showcase-card-copy">
+              <span>{isAr ? "الاتصالات" : "COMMUNICATION"}</span>
+              <strong>{isAr ? "كل رحلة تبدأ بإشارة" : "Every journey carries a signal"}</strong>
+              <small>{isAr ? "اتصال • ترددات • شبكات" : "Connectivity · Frequencies · Networks"}</small>
+            </div>
+            <span className="showcase-credit">{isAr ? "تصوير بصري تجريدي — ليس صورة لمعمل بالمعهد" : "Abstract visual — not a photograph of an IAET facility"}</span>
+          </div>
+        </div>
+        <div className="showcase-footnote">
+          <span>{isAr ? "الصورتان توضيحيتان لعالم الطيران والمراقبة الجوية، وليستا توثيقًا لمنشآت IAET." : "Illustrative aviation and airspace imagery — not a depiction of IAET facilities."}</span>
+          <span>IAET / ECE <b>•</b> ELECTRONICS × COMMUNICATIONS × AVIATION</span>
+        </div>
+      </motion.section>
+
       <motion.section className="intro-section section-pad" id="program" initial={reducedMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.65, ease: "easeOut" }}>
         <SectionIndex label={t.aboutEyebrow} />
         <div className="intro-layout">
