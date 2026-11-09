@@ -1844,3 +1844,86 @@ html[dir="rtl"] .chat-message.user { border-radius: 12px 12px 12px 3px; }
   .orbit-outer, .orbit-middle, .chat-typing span, .chat-send-loader { animation: none !important; }
   .resource-panel, .objective-row, .chat-launcher { transition: none !important; }
 }
+
+
+/* Multi-page program website */
+.subpage-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: #fff;
+  background:
+    radial-gradient(ellipse at 82% 32%, rgb(37 139 151 / 23%), transparent 35%),
+    linear-gradient(118deg, #061f31 0%, #0a3650 64%, #0b4054 100%);
+}
+.subpage-hero-grid {
+  position: absolute; inset: 0; z-index: -1; opacity: .2;
+  background-image: linear-gradient(rgb(150 210 220 / 18%) 1px, transparent 1px), linear-gradient(90deg, rgb(150 210 220 / 18%) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(ellipse at 72% 45%, #000 0%, transparent 75%);
+}
+.subpage-hero-inner {
+  max-width: 1450px; min-height: 440px; margin: auto; padding: 82px 8%;
+  display: grid; grid-template-columns: minmax(0, 1fr) 310px; gap: 7%; align-items: center;
+}
+.subpage-hero-copy { max-width: 850px; }
+.subpage-hero .eyebrow { color: #a8d4dc; font-size: 10px; letter-spacing: .14em; }
+.subpage-hero h1 { max-width: 850px; margin: 23px 0 18px; font-size: clamp(42px, 5.6vw, 72px); line-height: 1.12; letter-spacing: -.045em; }
+html[lang="ar"] .subpage-hero h1 { line-height: 1.55; letter-spacing: 0; }
+.subpage-lead { max-width: 760px; color: #c4d8de; font-size: 15px; line-height: 1.95; }
+.subpage-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 30px; }
+.subpage-text-link { display: inline-flex; align-items: center; gap: 8px; color: #b8e4e6; font-size: 13px; font-weight: 650; }
+.subpage-index-visual { position: relative; display: grid; place-items: center; min-height: 260px; border: 1px solid rgb(114 225 227 / 28%); background: radial-gradient(circle, rgb(114 225 227 / 12%), transparent 65%); }
+.subpage-index-visual span { font-size: clamp(54px, 7vw, 90px); font-weight: 800; letter-spacing: -.08em; color: rgb(220 247 248 / 92%); }
+.subpage-index-visual i, .subpage-index-visual b { position: absolute; width: 190px; height: 190px; border: 1px solid rgb(114 225 227 / 32%); border-radius: 50%; }
+.subpage-index-visual b { width: 235px; height: 235px; border-style: dashed; opacity: .65; }
+.subpage-index-visual small { position: absolute; bottom: 20px; inset-inline-start: 20px; color: #a5c7d0; font-size: 8px; letter-spacing: .14em; }
+.subpage-content { background: #f6f9fa; }
+.subpage-content-heading { display: flex; justify-content: space-between; align-items: end; gap: 30px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.subpage-content-heading > span { color: #087e89; font-size: 10px; font-weight: 800; letter-spacing: .15em; }
+.subpage-content-heading p { max-width: 540px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.subpage-sections { max-width: 1180px; margin: 0 auto; }
+.subpage-section { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 25px; padding: 42px 0; border-bottom: 1px solid var(--line); }
+.subpage-section-number { color: #168f9c; font-size: 12px; font-weight: 800; letter-spacing: .12em; padding-top: 9px; }
+.subpage-section-body h2 { margin: 0 0 12px; color: var(--deep); font-size: clamp(23px, 3vw, 34px); line-height: 1.35; }
+.subpage-section-body > p { max-width: 900px; margin: 0; color: #536c78; font-size: 14px; line-height: 2; }
+.subpage-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 25px; }
+.subpage-card { min-height: 170px; padding: 23px; background: #fff; border: 1px solid #e1eaed; box-shadow: 0 10px 28px rgb(6 31 49 / 3%); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.subpage-card:hover { transform: translateY(-4px); border-color: #a9cbd1; box-shadow: 0 18px 38px rgb(6 31 49 / 8%); }
+.subpage-card-mark { display: block; width: 27px; height: 3px; margin-bottom: 18px; background: #0c8b94; }
+.subpage-card h3 { margin: 0 0 8px; color: var(--deep); font-size: 16px; }
+.subpage-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.subpage-card-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 17px; color: #087e89; font-size: 11px; font-weight: 800; }
+.subpage-note { margin: 32px 0 0 97px; padding: 20px 22px; border-inline-start: 3px solid #d19a45; background: #fff; }
+.subpage-note strong { color: #8c6325; font-size: 9px; letter-spacing: .12em; }
+.subpage-note p { margin: 7px 0 0; color: #647783; font-size: 12px; line-height: 1.9; }
+.subpage-cta { display: flex; justify-content: space-between; align-items: center; gap: 30px; color: #fff; background: linear-gradient(115deg, #08283a, #0b435d); }
+.subpage-cta > div > span { color: #8dd9dc; font-size: 9px; font-weight: 800; letter-spacing: .15em; }
+.subpage-cta h2 { margin: 13px 0 8px; font-size: clamp(25px, 3.4vw, 39px); }
+.subpage-cta p { max-width: 650px; margin: 0; color: #c1d4da; font-size: 13px; line-height: 1.9; }
+.subpage-cta .button { flex: 0 0 auto; }
+html[dir="rtl"] .subpage-note { margin-right: 97px; margin-left: 0; }
+@media (max-width: 900px) {
+  .subpage-hero-inner { grid-template-columns: 1fr; padding: 62px 6%; min-height: 0; }
+  .subpage-index-visual { display: none; }
+}
+@media (max-width: 760px) {
+  .subpage-hero-inner { padding: 48px 6% 55px; }
+  .subpage-hero h1 { font-size: clamp(34px, 9vw, 48px); }
+  html[lang="ar"] .subpage-hero h1 { font-size: clamp(29px, 8vw, 40px); }
+  .subpage-lead { font-size: 13px; }
+  .subpage-content-heading { display: block; }
+  .subpage-content-heading p { margin-top: 13px; }
+  .subpage-section { grid-template-columns: 35px minmax(0, 1fr); gap: 13px; padding: 31px 0; }
+  .subpage-section-number { font-size: 10px; }
+  .subpage-section-body h2 { font-size: 23px; }
+  .subpage-section-body > p { font-size: 13px; }
+  .subpage-cards { grid-template-columns: 1fr; gap: 10px; }
+  .subpage-card { min-height: auto; padding: 19px; }
+  .subpage-note, html[dir="rtl"] .subpage-note { margin: 24px 0 0; }
+  .subpage-cta { flex-direction: column; align-items: stretch; }
+  .subpage-cta .button { align-self: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .subpage-card { transition: none; }
+}
