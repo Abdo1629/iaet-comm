@@ -72,7 +72,7 @@ export function SiteHeader({
           aria-label={isAr ? "التنقل الرئيسي" : "Main navigation"}
         >
           {t.nav.map(([label, href], index) => {
-            const isActive = href === "/" ? activeSection === "top" || activeSection === "home" : activeSection === href.replace(/^\\//, "");
+            const isActive = href === "/" ? activeSection === "top" || activeSection === "home" : activeSection === href.replace(/^\//, "");
             return (
             <motion.a
               key={href + (menuOpen ? "-open" : "-closed")}
