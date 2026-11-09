@@ -156,8 +156,9 @@ export default function Home() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: trimmed, locale, history: messages.slice(-8).map(({ role, text }) => ({ role, text })) }),
+        signal: AbortSignal.timeout(26000),
       });
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.error || "Assistant unavailable");
       const firstLink = Array.isArray(data.links) ? data.links[0] : undefined;
       setMessages((prev) => [
@@ -165,7 +166,9 @@ export default function Home() {
         { role: "assistant", text: data.answer, url: firstLink?.url },
       ]);
     } catch (error) {
-      const message = error instanceof Error ? error.message : "Please try again.";
+      const message = error instanceof Error && error.name === "TimeoutError"
+        ? (isAr ? "الرد اتأخر عن الوقت المحدد. حاول مرة تانية بعد قليل." : "The response timed out. Please try again shortly.")
+        : error instanceof Error ? error.message : "Please try again.";
       setMessages((prev) => [
         ...prev,
         {
