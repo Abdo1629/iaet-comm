@@ -13,6 +13,7 @@ import { ResourceCard } from "@/components/home/ResourceCard";
 import { ObjectiveList } from "@/components/home/ObjectiveList";
 import { HeroVisual } from "@/components/home/HeroVisual";
 import { VisionMission } from "@/components/home/VisionMission";
+import { EngineeringJourney } from "@/components/home/EngineeringJourney";
 import {
   ArrowLeft,
   ArrowRight,
@@ -57,7 +58,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ["top", "program", "vision-mission", "objectives", "academic-resources", "leadership", "learning-resources", "contact"];
+    const sectionIds = ["top", "aviation-connection", "engineering-journey", "program", "vision-mission", "objectives", "academic-resources", "leadership", "learning-resources", "contact"];
     const sections = sectionIds.map((id) => document.getElementById(id)).filter((section): section is HTMLElement => Boolean(section));
     if (!sections.length) return;
 
@@ -310,6 +311,8 @@ export default function Home() {
           <span>IAET / ECE <b>•</b> ELECTRONICS × COMMUNICATIONS × AVIATION</span>
         </div>
       </motion.section>
+
+      <EngineeringJourney isAr={isAr} reducedMotion={reducedMotion} />
 
       <motion.section className="intro-section section-pad" id="program" initial={reducedMotion ? false : { opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.65, ease: "easeOut" }}>
         <SectionIndex label={t.aboutEyebrow} />
