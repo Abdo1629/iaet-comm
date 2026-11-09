@@ -72,7 +72,7 @@ export function SiteHeader({
           aria-label={isAr ? "التنقل الرئيسي" : "Main navigation"}
         >
           {t.nav.map(([label, href], index) => {
-            const isActive = activeSection === href.slice(1);
+            const isActive = href === "/" ? activeSection === "top" || activeSection === "home" : activeSection === href.replace(/^\\//, "");
             return (
             <motion.a
               key={href + (menuOpen ? "-open" : "-closed")}
@@ -89,7 +89,7 @@ export function SiteHeader({
             </motion.a>
             );
           })}
-          <a href="#contact" className={"nav-contact" + (activeSection === "contact" ? " is-active" : "")} aria-current={activeSection === "contact" ? "location" : undefined} onClick={onCloseMenu}>
+          <a href="/contact" className={"nav-contact" + (activeSection === "contact" ? " is-active" : "")} aria-current={activeSection === "contact" ? "location" : undefined} onClick={onCloseMenu}>
             <span>{t.contact}</span>
             <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" />
           </a>
