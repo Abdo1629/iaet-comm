@@ -62,7 +62,7 @@ The final subdomain is not assumed in source code. It must be approved and provi
 
 The assistant uses `data/program-content.ts`, `data/leadership.ts`, `data/site-pages.ts` and institute facts currently visible on the official IAET website. Internal page links and official external links are allowlisted in the API route. The assistant must not invent staff details, fees, admission dates, schedules, regulations, course plans, room numbers or unsupported URLs.
 
-The department data request is documented in [docs/DEPARTMENT_DATA_REQUEST.md](docs/DEPARTMENT_DATA_REQUEST.md). It lists the information, source files, approvals and assets required before public launch.
+The department data request is documented in [English](docs/DEPARTMENT_DATA_REQUEST.md) and [Arabic](docs/طلب-بيانات-قسم-الإلكترونيات-والاتصالات.md). These documents list the information, source files, approvals and assets required before public launch.
 
 ## Content status
 
