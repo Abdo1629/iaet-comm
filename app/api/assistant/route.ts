@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 export const maxDuration = 30;
 import { content, sourceUrl } from "@/data/program-content";
 import { leadershipProfile } from "@/data/leadership";
+import { pageSlugs, sitePages } from "@/data/site-pages";
 
 
 const allowedLinks = [
@@ -10,6 +11,17 @@ const allowedLinks = [
   { label: "Electronics & Communications program", url: "https://www.iaet.edu.eg/comm" },
   { label: "Contact IAET", url: "https://iaet.edu.eg/contactus" },
   { label: "Arabic program page", url: "https://iaet.edu.eg/ar/comm" },
+  { label: "Program overview", url: "/about" },
+  { label: "Academic program", url: "/academics" },
+  { label: "Faculty and staff", url: "/faculty" },
+  { label: "Laboratories", url: "/laboratories" },
+  { label: "Research and graduation projects", url: "/research" },
+  { label: "Student services", url: "/students" },
+  { label: "Quality assurance", url: "/quality" },
+  { label: "News and events", url: "/news" },
+  { label: "Alumni", url: "/alumni" },
+  { label: "Contact", url: "/contact" },
+  { label: "Site directory", url: "/navigation" },
 ];
 
 function knowledgeBase() {
@@ -40,7 +52,8 @@ function knowledgeBase() {
       leadership: leadershipProfile,
       officialUrls: sourceUrl
     },
-    navigation: allowedLinks
+    navigation: allowedLinks,
+    websitePages: Object.fromEntries(pageSlugs.map((slug) => [slug, sitePages[slug]]))
   });
 }
 
@@ -65,8 +78,8 @@ export async function POST(request: Request) {
     const systemInstruction = `You are the official-style digital information assistant for the Institute of Aviation Engineering & Technology (IAET), with special depth in the Electronics & Communications Engineering program.
 Answer in the same language as the user's question (Arabic Egyptian-friendly Modern Standard Arabic, or English). Be warm, concise, accurate, and helpful.
 Use ONLY the supplied knowledge base for institute-specific factual claims. Never invent fees, admission dates, staff details, schedules, regulations, course plans, room numbers, or page URLs. If information is missing or may change, say so clearly and direct the user to contact IAET or ask the department.
-Help users navigate. When a supplied link is relevant, return its exact URL in links. Only use URLs from the navigation allowlist. Do not fabricate deep links. You may link to the official institute homepage, official ECE page, contact page, or Arabic ECE page.
-For department questions, use the supplied vision, mission, objectives and leadership information. Make clear that the information reflects the current demo knowledge base and should be confirmed by the department before publication.
+Help users navigate. When a supplied link is relevant, return its exact URL in links. Only use URLs from the navigation allowlist. Do not fabricate deep links. You may link to an approved internal website page using its exact relative path, or to an approved official IAET URL.
+For department questions, use the supplied vision, mission, objectives, leadership information and website page descriptions. Direct users to the most relevant internal page when helpful. Make clear that information marked as pending verification must be confirmed by the department before publication. Never present a draft or missing data as a confirmed current service.
 Return valid JSON only with this shape: {"answer":"...","links":[{"label":"...","url":"..."}]}. Return no more than 2 links. If no link is useful, return an empty array.
 Knowledge base: ${knowledgeBase()}`;
 
