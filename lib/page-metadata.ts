@@ -14,7 +14,7 @@ export function getProgramPageMetadata(slug: SitePageSlug): Metadata {
       "Communications Engineering",
       page.title,
     ],
-    robots: { index: true, follow: true, maxImagePreview: "large" },
+    robots: { index: true, follow: true, max-image-preview: "large" },
     openGraph: {
       type: "website",
       title: page.title + " | IAET",
