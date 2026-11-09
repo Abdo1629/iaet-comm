@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+
+export const maxDuration = 30;
 import { content, sourceUrl } from "@/data/program-content";
 import { leadershipProfile } from "@/data/leadership";
 
@@ -69,11 +71,12 @@ Return valid JSON only with this shape: {"answer":"...","links":[{"label":"...",
 Knowledge base: ${knowledgeBase()}`;
 
     const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + encodeURIComponent(apiKey),
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=" + encodeURIComponent(apiKey),
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         cache: "no-store",
+        signal: AbortSignal.timeout(20000),
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: systemInstruction }] },
           contents: [...history, { role: "user", parts: [{ text: question }] }],
@@ -107,7 +110,7 @@ Knowledge base: ${knowledgeBase()}`;
     if (!response.ok) {
       const detail = await response.text();
       console.error("Gemini API error:", response.status, detail.slice(0, 500));
-      return NextResponse.json({ error: "The assistant is temporarily unavailable. Please try again shortly." }, { status: 502 });
+      return NextResponse.json({ error: `Gemini returned an error (${response.status}). Check the model availability and the server API key configuration.` }, { status: 502 });
     }
 
     const payload = await response.json();
@@ -133,6 +136,9 @@ Knowledge base: ${knowledgeBase()}`;
     });
   } catch (error) {
     console.error("IAET assistant route error:", error);
+    if (error instanceof Error && (error.name === "TimeoutError" || error.name === "AbortError")) {
+      return NextResponse.json({ error: "Gemini took too long to respond. Please try again." }, { status: 504 });
+    }
     return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
   }
 }
