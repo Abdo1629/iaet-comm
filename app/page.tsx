@@ -103,40 +103,27 @@ export default function Home() {
       );
 
       gsap.fromTo(
-        ".signal-orbit",
-        { rotation: -12, scale: 0.96, opacity: 0.65 },
-        {
-          rotation: 0,
-          scale: 1,
-          opacity: 1,
-          duration: 1.4,
-          ease: "power3.out",
-        },
+        ".hero-plane",
+        { opacity: 0, y: 34, scale: 0.94 },
+        { opacity: 0.45, y: 0, scale: 1, duration: 1.5, delay: 0.18, ease: "power3.out" },
       );
 
       gsap.fromTo(
-        ".signal-node",
-        { scale: 0.75, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.65,
-          stagger: 0.12,
-          delay: 0.3,
-          ease: "back.out(1.5)",
-        },
+        ".radar-screen",
+        { opacity: 0, scale: 0.72, rotate: -18 },
+        { opacity: 1, scale: 1, rotate: 0, duration: 1.05, delay: 0.48, ease: "back.out(1.35)" },
       );
 
       gsap.fromTo(
-        ".signal-paths path",
-        { strokeDasharray: 620, strokeDashoffset: 620 },
-        {
-          strokeDashoffset: 0,
-          duration: 1.1,
-          stagger: 0.12,
-          delay: 0.2,
-          ease: "power2.out",
-        },
+        [".hero-flight-tag", ".hero-signal-tag"],
+        { opacity: 0, y: 18, x: isAr ? -14 : 14 },
+        { opacity: 1, y: 0, x: 0, duration: 0.8, stagger: 0.16, delay: 0.55, ease: "power3.out" },
+      );
+
+      gsap.fromTo(
+        ".radar-target",
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.45, stagger: 0.16, delay: 0.9, ease: "back.out(2)" },
       );
     }, heroVisual.current.closest(".hero") ?? undefined);
 
