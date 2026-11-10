@@ -60,10 +60,7 @@ export function SiteHeader({
               priority
             />
           </span>
-          <span className="brand-copy">
-            <strong>IAET</strong>
-            <small>{isAr ? "هندسة وتكنولوجيا الطيران" : "AVIATION ENGINEERING & TECHNOLOGY"}</small>
-          </span>
+          <span className="brand-institution">{t.institution}</span>
         </Link>
 
         <nav
