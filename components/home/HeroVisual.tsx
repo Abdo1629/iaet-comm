@@ -26,26 +26,33 @@ export const HeroVisual = forwardRef<HTMLDivElement, HeroVisualProps>(
 
         <svg className="aircraft-blueprint hero-plane" viewBox="0 0 900 500" fill="none" aria-hidden="true">
           <defs>
-            <linearGradient id="plane-metal" x1="120" y1="100" x2="770" y2="420" gradientUnits="userSpaceOnUse">
+            <linearGradient id="plane-metal" x1="150" y1="120" x2="760" y2="390" gradientUnits="userSpaceOnUse">
               <stop stopColor="#F5FFFF" stopOpacity=".92" />
-              <stop offset=".48" stopColor="#91DDE4" stopOpacity=".8" />
-              <stop offset="1" stopColor="#2B829A" stopOpacity=".62" />
+              <stop offset=".5" stopColor="#91DDE4" stopOpacity=".82" />
+              <stop offset="1" stopColor="#2B829A" stopOpacity=".68" />
             </linearGradient>
-            <linearGradient id="plane-edge" x1="450" y1="42" x2="450" y2="454" gradientUnits="userSpaceOnUse">
+            <linearGradient id="plane-edge" x1="180" y1="120" x2="760" y2="390" gradientUnits="userSpaceOnUse">
               <stop stopColor="#E7FFFF" />
-              <stop offset="1" stopColor="#58B8C7" stopOpacity=".18" />
+              <stop offset="1" stopColor="#58B8C7" stopOpacity=".25" />
             </linearGradient>
-            <filter id="plane-glow" x="0" y="0" width="900" height="500" filterUnits="userSpaceOnUse">
-              <feGaussianBlur stdDeviation="8" />
+            <filter id="plane-glow" x="40" y="35" width="820" height="430" filterUnits="userSpaceOnUse">
+              <feGaussianBlur stdDeviation="7" />
             </filter>
           </defs>
-          <path d="M450 34 C461 74 468 132 474 190 L795 326 Q813 335 800 344 L481 294 L474 414 Q471 441 450 466 Q429 441 426 414 L419 294 L100 344 Q87 335 105 326 L426 190 C432 132 439 74 450 34Z" fill="url(#plane-metal)" fillOpacity=".16" stroke="url(#plane-edge)" strokeWidth="2.2" />
-          <path d="M450 34 C461 74 468 132 474 190 L795 326 Q813 335 800 344 L481 294 L474 414 Q471 441 450 466 Q429 441 426 414 L419 294 L100 344 Q87 335 105 326 L426 190 C432 132 439 74 450 34Z" stroke="#B8F7FA" strokeOpacity=".32" strokeWidth="10" filter="url(#plane-glow)" />
-          <path d="M426 190 L474 190 M419 294 L481 294 M438 114 L462 114 M432 150 L468 150" stroke="#D7FFFF" strokeOpacity=".72" strokeWidth="1.5" />
-          <path d="M410 306 L382 322 L370 358 M490 306 L518 322 L530 358" stroke="#8DEAF0" strokeOpacity=".5" strokeWidth="2" />
-          <path d="M450 54 L450 425" stroke="#DDFEFF" strokeOpacity=".36" strokeDasharray="5 9" />
-          <path d="M190 333 L390 274 M710 333 L510 274" stroke="#B7F4F5" strokeOpacity=".55" strokeDasharray="3 8" />
-          <circle cx="450" cy="78" r="5" fill="#DDFEFF" />
+          <g fill="url(#plane-metal)" fillOpacity=".24" stroke="url(#plane-edge)" strokeWidth="2.4" strokeLinejoin="round">
+            <path d="M142 258 C230 244 390 224 570 205 L748 185 C781 181 807 193 817 210 C823 223 811 235 788 243 L585 294 C420 335 267 365 160 378 C127 382 105 367 104 347 C103 327 119 286 142 258Z" />
+            <path d="M400 231 C443 184 487 127 535 76 C548 63 566 69 568 87 L548 215 L493 306 L425 294 L389 254Z" />
+            <path d="M390 295 L448 286 L535 405 C548 426 534 445 516 432 L391 341 L365 314Z" />
+            <path d="M174 253 L218 205 C230 193 244 198 241 214 L225 244 L190 268Z" />
+            <path d="M174 376 L222 408 C235 417 249 409 241 394 L219 369 L190 359Z" />
+          </g>
+          <path d="M142 258 C230 244 390 224 570 205 L748 185 C781 181 807 193 817 210 C823 223 811 235 788 243 L585 294 C420 335 267 365 160 378 C127 382 105 367 104 347 C103 327 119 286 142 258Z" stroke="#B8F7FA" strokeOpacity=".38" strokeWidth="9" filter="url(#plane-glow)" />
+          <path d="M180 285 C350 258 580 225 785 214" stroke="#DDFEFF" strokeOpacity=".58" strokeWidth="1.6" />
+          <path d="M178 350 C360 316 580 265 784 226" stroke="#DDFEFF" strokeOpacity=".3" strokeWidth="1.2" strokeDasharray="5 9" />
+          <path d="M725 191 L741 205 L725 219" stroke="#E7FFFF" strokeOpacity=".82" strokeWidth="2" />
+          <path d="M262 239 L279 247 M296 233 L313 241 M330 227 L347 235 M364 221 L381 229" stroke="#DDFEFF" strokeOpacity=".62" strokeWidth="2" strokeLinecap="round" />
+          <path d="M416 252 L525 103 M444 278 L548 94 M429 310 L517 420" stroke="#B7F4F5" strokeOpacity=".42" strokeWidth="1.5" />
+          <path d="M150 315 L116 340 M159 328 L125 353" stroke="#DDFEFF" strokeOpacity=".55" strokeWidth="2" />
         </svg>
 
         <div className="hero-flight-tag">
