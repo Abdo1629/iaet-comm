@@ -60,7 +60,7 @@ export function SiteHeader({
               priority
             />
           </span>
-          <span className="brand-institution">{t.institution}</span>
+          <span className="brand-institution">{isAr ? "هندسة وتكنولوجيا الطيران" : "Aviation Engineering & Technology"}</span>
         </Link>
 
         <nav
