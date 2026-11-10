@@ -52,7 +52,7 @@ export function SiteHeader({
         <Link href="/" className="brand" aria-label={t.institution} onClick={onCloseMenu}>
           <span className="brand-logo-wrap">
             <Image
-              src="/brand/iaet-logo.png"
+              src="/iaetlogo-removebg-preview.png"
               alt="IAET"
               width={68}
               height={45}
