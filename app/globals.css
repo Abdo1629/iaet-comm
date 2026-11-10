@@ -2668,3 +2668,96 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline-color: #e97
     border-radius: 7px;
   }
 }
+
+/* HOMEPAGE MOTION — subtle, purposeful and reduced-motion aware */
+@keyframes iaet-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -9px, 0); }
+}
+@keyframes iaet-signal-pulse {
+  0%, 100% { opacity: .55; transform: scale(.985); }
+  50% { opacity: 1; transform: scale(1.025); }
+}
+@keyframes iaet-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes iaet-scroll-hint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+@keyframes iaet-wave-glow {
+  0%, 100% { opacity: .68; }
+  50% { opacity: 1; }
+}
+
+/* Hero: restrained floating telemetry and a living radar display. */
+.hero-flight-tag { animation: iaet-float 6s ease-in-out infinite; }
+.hero-signal-tag { animation: iaet-float 7s ease-in-out -2s infinite; }
+.radar-sweep { transform-origin: center; animation: radar-rotate 9s linear infinite; }
+.radar-target { animation: iaet-signal-pulse 3.4s ease-in-out infinite; }
+.radar-target:nth-of-type(2) { animation-delay: .7s; }
+.radar-target:nth-of-type(3) { animation-delay: 1.4s; }
+.scroll-cue svg { animation: iaet-scroll-hint 2s ease-in-out infinite; }
+
+/* Visual storytelling cards respond to pointer without jumping the layout. */
+.showcase-image-card,
+.showcase-signal-card,
+.journey-scene,
+.resource-card,
+.vision-panel,
+.objective-row {
+  transition:
+    transform .45s cubic-bezier(.22, 1, .36, 1),
+    box-shadow .45s cubic-bezier(.22, 1, .36, 1),
+    border-color .35s ease;
+}
+.showcase-image-card:hover,
+.showcase-image-card:focus-visible {
+  transform: translateY(-7px);
+}
+.showcase-image-card:hover .showcase-image-bg,
+.showcase-image-card:focus-visible .showcase-image-bg {
+  transform: scale(1.045);
+}
+.showcase-image-bg { transition: transform 1s cubic-bezier(.22, 1, .36, 1); }
+.showcase-signal-card .signal-card-orbit { animation: iaet-orbit 34s linear infinite; }
+.showcase-signal-card .signal-card-wave { animation: iaet-wave-glow 4.5s ease-in-out infinite; }
+.journey-scene:hover { transform: translateY(-5px); box-shadow: 0 28px 72px rgb(23 52 72 / 12%); }
+.journey-radar-sweep { animation-duration: 8s; }
+.journey-network .network-orbit { animation: iaet-orbit 30s linear infinite; }
+.journey-network .orbit-two { animation-direction: reverse; animation-duration: 38s; }
+.resource-card:hover, .vision-panel:hover { transform: translateY(-4px); }
+.objective-row:hover { transform: translateX(-3px); }
+html[dir="rtl"] .objective-row:hover { transform: translateX(3px); }
+
+/* Keep all motion optional for visitors who request reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-flight-tag,
+  .hero-signal-tag,
+  .radar-sweep,
+  .radar-target,
+  .scroll-cue svg,
+  .showcase-signal-card .signal-card-orbit,
+  .showcase-signal-card .signal-card-wave,
+  .journey-network .network-orbit {
+    animation: none !important;
+  }
+  .showcase-image-card,
+  .showcase-signal-card,
+  .journey-scene,
+  .resource-card,
+  .vision-panel,
+  .objective-row,
+  .showcase-image-bg {
+    transition: none !important;
+  }
+  .showcase-image-card:hover,
+  .showcase-image-card:focus-visible,
+  .journey-scene:hover,
+  .resource-card:hover,
+  .vision-panel:hover,
+  .objective-row:hover {
+    transform: none !important;
+  }
+}
